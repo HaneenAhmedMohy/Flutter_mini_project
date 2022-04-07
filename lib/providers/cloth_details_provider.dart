@@ -9,10 +9,14 @@ class ClothDetailsProvider with ChangeNotifier {
 
   ClothesViewModel clothesViewModel = ClothesViewModel();
   List<ReviewViewModel> reviewViewModels = [];
+  static const GET_CLOTH_BY_ID_SYNC_FUNCTION = 'getClothById';
+  static const GET_REVIEWS_BY_PRODUCT_ID_ASYNC_FUNCTION =
+      'getReviewsbyProductId';
 
   Future<void> getClothById(int id) async {
     ClothesViewModel result = await clothesController.getClothById(id);
-    await getReviewsbyProductId(id);
+     await getReviewsbyProductId(id);
+    //  print('222222222222222${result}');
     clothesViewModel = result;
     // notifyListeners();
   }
@@ -22,5 +26,16 @@ class ClothDetailsProvider with ChangeNotifier {
         await clothesController.getReviewByProductId(id);
     reviewViewModels = [...result];
     // notifyListeners();
+  }
+
+  tryCatchAsyncWrapper(String functionName, Function fn) async {
+    try {
+      print('Start Call: $functionName');
+      await fn();
+      print('End Call: $functionName');
+    } catch (onError, stackTrace) {
+      print('errooooooooor');
+      return null;
+    }
   }
 }

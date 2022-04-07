@@ -10,16 +10,26 @@ class LanguageButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () async {
-        if (context.locale == const Locale('en')) {
-          context.setLocale(context.supportedLocales[1]);
-        } else {
-          context.setLocale(context.supportedLocales[0]);
-        }
-        await Provider.of<ClothesProvider>(context, listen: false).getClothes();
-      },
-      child: const Text(LocaleKeys.change_language).tr(),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Text(
+          LocaleKeys.new_screen_title,
+          textAlign: TextAlign.start,
+        ).tr(),
+        ElevatedButton(
+          onPressed: () async {
+            if (context.locale == const Locale('en')) {
+              context.setLocale(context.supportedLocales[1]);
+            } else {
+              context.setLocale(context.supportedLocales[0]);
+            }
+            await Provider.of<ClothesProvider>(context, listen: false)
+                .getClothes();
+          },
+          child: const Text(LocaleKeys.change_language).tr(),
+        )
+      ],
     );
   }
 }

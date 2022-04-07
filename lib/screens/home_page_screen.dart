@@ -4,6 +4,8 @@ import 'package:tambe_flutter_app/utils/app_dimensions.dart';
 import 'package:tambe_flutter_app/widgets/items_list_widget.dart';
 import 'package:tambe_flutter_app/widgets/language_button_widget.dart';
 
+import '../generated/locale_keys.g.dart';
+
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({Key? key, this.title = ''}) : super(key: key);
   final String title;
@@ -18,19 +20,11 @@ class HomePageScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(
-                    vertical: AppDimensions.convertToH((20))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      title.tr(),
-                      textAlign: TextAlign.start,
-                    ),
-                    const LanguageButtonWidget(),
-                  ],
-                )),
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(
+                  vertical: AppDimensions.convertToH((20))),
+              child: const LanguageButtonWidget(),
+            ),
             const ItemsListWidget(),
           ],
         ),

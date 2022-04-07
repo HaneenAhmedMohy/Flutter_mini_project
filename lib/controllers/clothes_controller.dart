@@ -27,6 +27,7 @@ class ClothesController {
     ClothesEntity clothesEntity = await clothesApi.getClothesById(id);
     ClothesViewModel clothesViewModel =
         ClothesViewModel.fromEntity(clothesEntity);
+    // print('333333333333${clothesViewModel}');
     return clothesViewModel;
   }
 

@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: ChangeNotifierProvider<ClothesProvider>(
-            create: (_) => _clothesProvider, child: const HomePageScreen(title:LocaleKeys.screen_title)),
+            create: (_) => _clothesProvider, child: const HomePageScreen()),
         onGenerateRoute: Routes.onGenerateRoute,
       ),
     );

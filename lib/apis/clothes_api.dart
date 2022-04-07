@@ -36,6 +36,8 @@ class ClothesApi {
       if (response.statusCode == 200) {
         var item = json.decode(response.body); // id and name
         ClothesEntity result = ClothesEntity.fromList(item);
+        // print('4444444444444${result}');
+
         return result;
       }
       return ClothesEntity();
