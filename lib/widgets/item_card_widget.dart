@@ -61,7 +61,7 @@ class ItemCardWidget extends StatelessWidget {
                     Padding(
                       padding:
                           EdgeInsets.only(top: AppDimensions.convertToH((5))),
-                      child: Text(name),
+                      child: Text(name,overflow: TextOverflow.ellipsis,maxLines: 1,),
                     ),
                     Padding(
                       padding:
